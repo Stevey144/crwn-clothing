@@ -48,5 +48,22 @@
         width: 10%;
       }
     }
+
+    @media only screen and (max-width: 800px) {
+      .footer {
+        margin: 5px;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      .product-card-container{
+        display:grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 20px;
+        row-gap: 50px;
+    }
+    }
+
   }
+
   

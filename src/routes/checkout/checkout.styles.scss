@@ -29,4 +29,30 @@
       font-size: 36px;
     }
   }
-  
+  @media only screen and (max-width: 300px) {
+    .checkout-container {
+      width: 100%;
+    }
+
+    .checkout-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid darkgrey;
+  }
+  }
+  @media only screen and (max-width: 600px) {
+    .checkout-container {
+      width: 100%;
+    }
+    .checkout-header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid darkgrey;
+    }
+    .header-block{
+      padding:10px;
+      display: flex;
+    }
+  }

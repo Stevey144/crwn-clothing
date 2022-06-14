@@ -16,9 +16,7 @@ const App= () => {
         <Route path='checkout' element={<Checkout />} />
     </Route>
   </Routes>
-
   )
-    
   // return (
   //  <div className='categories-container'>
   //    {categories.map((category) => (
