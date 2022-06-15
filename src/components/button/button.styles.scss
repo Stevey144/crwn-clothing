@@ -15,6 +15,13 @@
     cursor: pointer;
     display: flex;
     justify-content: center;
+
+    @media screen and (max-width: 800px) {
+      width:auto;
+      border-radius: 15px;
+      padding: 0px;
+    
+    } 
   
     &:hover {
       background-color: white;
