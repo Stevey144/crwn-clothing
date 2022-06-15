@@ -1,10 +1,26 @@
 .product-card-container {
-    width: 100%;
+    width: 22vw;
     display: flex;
     flex-direction: column;
     height: 350px;
     align-items: center;
     position: relative;
+
+    @media screen and (max-width: 800px) {
+        width: 40vw;
+
+        &:hover {
+          img {
+            opacity: unset;
+          }
+
+         }
+
+         button {
+          opacity: unset;
+        }
+
+      }
   
     img {
       width: 100%;
@@ -19,6 +35,12 @@
       position: absolute;
       top: 255px;
       display: none;
+      @media screen and (max-width: 800px) {
+        display: block;
+        opacity: 0.9;
+        min-width: unset;
+        padding: 0 10px 0 10px;
+      }
     }
   
     &:hover {
@@ -48,22 +70,6 @@
         width: 10%;
       }
     }
-
-    @media only screen and (max-width: 800px) {
-      .footer {
-        margin: 5px;
-      }
-    }
-
-    @media only screen and (max-width: 800px) {
-      .product-card-container{
-        display:grid;
-        grid-template-columns: repeat(2,1fr);
-        column-gap: 20px;
-        row-gap: 50px;
-    }
-    }
-
-  }
+}
 
   
