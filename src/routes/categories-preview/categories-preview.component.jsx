@@ -1,11 +1,12 @@
 //we want to list all the product available using this component
-import { useContext,Fragment } from "react";
-import { CategoriesContext } from "../../contexts/categories.context";
-// import ProductCard from "../../components/product-card/product-card.component";
+import {Fragment } from "react";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import {selectCategoriesMap} from "../../store/categories/category.selector";
 import CategoryPreview from "../../components/category-preview/category-preview.component";
 
 const CategoriesPreview = () => {
-    const { categoriesMap } = useContext(CategoriesContext);
+    const categoriesMap = useSelector(selectCategoriesMap);
+    
     return (
         <Fragment>
             {

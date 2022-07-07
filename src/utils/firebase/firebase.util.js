@@ -103,7 +103,7 @@ const firebaseConfig = {
       return await createUserWithEmailAndPassword(auth, email, password)
   };
 
-  export const signInAuthUserWithEmailAndPassword = async (email, password) =>{
+export const signInAuthUserWithEmailAndPassword = async (email, password) =>{
     if(!email || !password) return;
 
     return await signInWithEmailAndPassword(auth, email, password)
@@ -111,6 +111,7 @@ const firebaseConfig = {
 export const signOutUser = async () => await signOut(auth);
 
 export const onAuthStateChangedListener =  (callback) =>  {
+
     for(var i=callback; i<1; i++){
     onAuthStateChangedListener(auth, callback);
     }

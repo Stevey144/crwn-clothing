@@ -1,8 +1,9 @@
-import { useState,useContext } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { selectCurrentUser } from "../../store/user/user.selector";
 import FormInput from "../form-input/form-input.component";
 import './sign-in-form.styles.scss'
 import Button from "../button/button.component";
-import { UserContext } from "../../contexts/user.context";
 
 import {signInWithGooglePopup,
         createUserDocumentFromAuth,
@@ -19,7 +20,8 @@ const SignInForm = () =>{
     const [formFields, setFormFields] = useState(defaultFormField)
     const {email,password} = formFields;
 
-    const {setCurrentUser} = useContext(UserContext);
+    const setCurrentUser = useSelector(selectCurrentUser);
+
 
     const resetFormFields = () =>{
         setFormFields(defaultFormField);
@@ -35,10 +37,8 @@ const SignInForm = () =>{
         event.preventDefault();
         try{
              const {user} = await signInAuthUserWithEmailAndPassword(email,password);
-            //  console.log(user);
                 setCurrentUser(user); 
                 resetFormFields();
-
             }
             catch(error){
                 switch(error.code){
