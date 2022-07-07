@@ -1,17 +1,9 @@
-.navigation {
+  .navigation {
     height: 70px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
-    // @media screen and (max-width: 800px) {
-    //  position: fixed;
-    //  top:0;
-    //  width: 100%;
-    //  height: 70px;
-    //  background-color: cadetblue;
-    //  display: flex;
-    // }
   
     .logo-container {
       height: 100%;
@@ -34,12 +26,11 @@
       .nav-link {
         padding: 10px 15px;
         cursor: pointer;
-        // @media screen and (max-width: 800px) {
-        //   padding: 4px;
-        //   font-size: 13px;
-        //   width: 100%;
-        //   color:white;
-        // }
+        @media screen and (max-width: 800px) {
+          padding: 4px;
+          font-size: 13px;
+          width: 100%;
+        }
       
       }
     }
