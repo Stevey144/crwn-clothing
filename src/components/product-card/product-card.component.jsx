@@ -8,6 +8,7 @@ import { CartContext } from '../../contexts/cart.context';
 Modal.setAppElement("#root");
 
 const ProductCard = ({product}) =>{
+    
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleModal = () =>{
@@ -15,6 +16,7 @@ const ProductCard = ({product}) =>{
     }
 
 const {name,price,imageUrl} = product;
+
 const {addItemToCart} = useContext(CartContext);
 
 const addProductToCart = () => addItemToCart(product);
