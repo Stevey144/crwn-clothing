@@ -1,8 +1,5 @@
 import { createContext,useReducer} from "react";
-import { useState } from "react";
 import createAction from "../utils/reducer/reducer.utils";
-
-
 
 const addCartItem = (cartItems,productToAdd) =>{
     //find if cartitem contains productToAdd
@@ -101,9 +98,7 @@ export const CartProvider = ({ children }) => {
      const addItemToCart = (productToAdd) =>{
        const newCartItems = addCartItem(cartItems,productToAdd);
 
-       const toggleModal = (isOpen,setIsOpen) =>{
-        setIsOpen(!isOpen);
-       }
+      
        
        updateCartItemsReducer(newCartItems);
 

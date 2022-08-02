@@ -1,0 +1,19 @@
+.paydiv{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.payForm{
+    height: 100px;
+    min-width: 500px;
+
+    @media screen and (max-width: 800px) {
+        
+        width :300px;
+        padding: 80px;
+        display: grid;
+    }
+
+}

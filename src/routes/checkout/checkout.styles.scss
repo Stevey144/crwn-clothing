@@ -33,20 +33,10 @@
       margin-left: auto;
       font-size: 36px;
     }
+    .payment-form{
+      @media screen and (max-width: 800px) {
+        }
+
+    }
   }
 
-  // @media only screen and (max-width: 600px) {
-  //   .checkout-container {
-  //     width: 100%;
-  //   }
-  //   .checkout-header {
-  //       width: 100%;
-  //       display: flex;
-  //       justify-content: space-between;
-  //       border-bottom: 1px solid darkgrey;
-  //   }
-  //   .header-block{
-  //     padding:10px;
-  //     display: flex;
-  //   }
-  // }
