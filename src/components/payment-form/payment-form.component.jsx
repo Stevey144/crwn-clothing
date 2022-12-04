@@ -1,13 +1,10 @@
+import { useState } from 'react';
+import { useSelector } from 'react-redux/es/exports';
 import {CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
-import { useEffect } from 'react';
 import Button, {BUTTON_TYPE_CLASSES} from '../button/button.component';
 import './payment-form.styles.scss';
-import axios from "axios"
-import { useState } from 'react';
 
 const  PaymentForm = () => {
-    const {success, setSuccess} = useState(false)
-
     const stripe = useStripe();
     const elements =  useElements();
 
@@ -18,36 +15,42 @@ const  PaymentForm = () => {
      if(!stripe || !elements){
         return;
      }
-     const {error, paymentMethod} = await stripe.createPaymentMethod({
-        type: "card",
-        card: elements.getElement(CardElement)
+
+     const response = await fetch('/.netlify/functions/create-payment-intent',{
+        method:'post',
+        headers:{
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ amount: 1000} ),
+
+     }).then((res) => res.json());
+
+     console.log(response);
+
+     const {
+        paymentIntent: {client_secret},
+      } = response;
+     console.log(client_secret);
+
+     const paymentResult = await stripe.confirmCardPayment(client_secret,{
+        payment_method : {
+            card : elements.getElement(CardElement),
+            billing_details:{
+                name : 'stephen'
+            }
+        }
      })
 
-    if(!error){
-        try{
+     if(paymentResult.error){
+        alert(paymentResult.error)
+     }
+     else{
+        if(paymentResult.paymentIntent.status === 'succeeded'){
+            alert('payment successful');
+        }
+     }
 
-            const {id} = paymentMethod
-            const response = await axios.post("/.netlify/functions/create-payment-intent", {
-                amount: 1000,
-                id
-                })
-
-                if(response.data.success){
-                    console.log("successful payment");
-                    setSuccess(true);
-
-                }
-                }
-                catch(error){
-                    console.log(error)
-
-                }
-
-    }
-    else{
-        console.log(error.message);
-    }
-    }
+    };
     
     return (
         <div className='paydiv'>
